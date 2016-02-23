@@ -1,0 +1,1 @@
+<p>E-mail: <a href="#">sales@mshop.ru</a></p>

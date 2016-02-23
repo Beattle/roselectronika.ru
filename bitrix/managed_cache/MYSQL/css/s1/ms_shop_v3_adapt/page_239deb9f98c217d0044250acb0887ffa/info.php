@@ -1,0 +1,1 @@
+<? $arFilesInfo = array( 'FILES' => array("/bitrix/templates/ms_shop_v3_adapt/components/bitrix/main.feedback/ms_contact_form/style.css" => "1435697838435","/bitrix/components/bitrix/system.show_message/templates/.default/style.css" => "143569784951",), 'CUR_SEL_CNT' => '10', 'CUR_IE_CNT' => '0'); ?>

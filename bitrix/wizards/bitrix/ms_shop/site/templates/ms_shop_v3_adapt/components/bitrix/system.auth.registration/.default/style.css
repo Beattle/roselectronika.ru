@@ -1,0 +1,21 @@
+.bx_registration_page{
+	color: #3F3F3F;
+	font-size: 12px;
+	line-height: 20px;
+}
+.bx_registration_page a{color: #007acf;}
+.bx_registration_page a:hover{text-decoration: none;}
+
+.bx_registration_page .btn{
+margin:10px 0 0;
+}
+
+
+.bx_registration_page .starrequired{color: #f00;}
+
+.bx_registration_page .input_text_style{
+display:block;
+width:300px;
+}
+
+.bx_registration_page .input_text_style[name="captcha_word"]{width:180px;}

@@ -1,0 +1,19 @@
+
+.analog-list .product{
+    display: inline-block;
+    text-align: center;
+    margin-right: 15px;
+}
+
+.analog-list .product:last-child{
+    margin-right: 0;
+}
+
+.analog-list .name-cont{
+    text-align: left;
+}
+
+.analog-list .name{
+    display: block;
+}
+

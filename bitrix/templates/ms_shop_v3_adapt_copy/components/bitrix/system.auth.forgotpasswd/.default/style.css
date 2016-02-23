@@ -1,0 +1,29 @@
+.bx_forgotpassword_page{
+	font-size: 13px;
+	line-height: 20px;
+}
+
+.bx_forgotpassword_page .field{
+width:300px;
+	color: #3F3F3F;
+	font-size: 13px;
+	line-height: 20px;
+}
+
+
+
+.bx_forgotpassword_page a{color: #007acf;}
+.bx_forgotpassword_page a:hover{text-decoration: none;}
+
+.bx_forgotpassword_page .starrequired{color: #f00;}
+.bx_forgotpassword_page .bt_blue{
+	display:inline-block;
+	border-radius:3px;
+	text-align:center;
+	text-decoration:none;
+	font-size:14px;
+	cursor:pointer;
+	border: none;
+}
+.bx_forgotpassword_page .shadow.bt_blue{box-shadow:0 1px 1px 0 rgba(0,0,0,.2)}
+.bx_forgotpassword_page .shadow.bt_blue:active{box-shadow:none}

@@ -1,0 +1,1 @@
+<a id="logo" href="<?=SITE_DIR?>"><img src="#SITE_DIR#theme_files/logo.png" alt=""/></a>

@@ -1,0 +1,120 @@
+/***********************************
+***** SIDE-MENU
+************************************/
+
+.side-block.side-menu-dd{
+-webkit-border-radius:0;
+-moz-border-radius:0;
+border-radius:0;
+}
+
+.side-menu-dd .side-block-in{padding:0;}
+
+.side-menu{position:relative;}
+
+.side-menu li{margin:0;}
+
+.side-menu > li{border-top:1px solid #DEDEDE;}
+
+.side-menu > li:first-child{border-top:none;}
+
+.side-menu > li > a{
+display:block;
+padding:10px 10px 10px 20px;
+z-index:1;
+position:relative;
+text-decoration:none;
+font-size:12px;
+line-height:15px;
+/*
+-webkit-transition: all 0.4s ease;
+-moz-transition: all 0.4s ease;
+-ms-transition: all 0.4s ease;
+-o-transition: all 0.4s ease;
+transition: all 0.4s ease;
+*/
+}
+
+
+.side-menu > li.dropdown > a{
+margin:0 -1px 0 0;
+padding-right:11px;
+}
+
+.side-menu > li:hover > a{
+background:#696969;
+color:#fff!important;
+}
+
+
+.side-menu > li > .sub-source{display:none;}
+
+.side-menu > li > .sub-container{
+position:absolute;
+top:0;
+width:551px;
+background:#fff;
+border:2px solid #696969;
+padding:15px 10px;
+-webkit-border-radius:0 5px 5px 0;
+-moz-border-radius:0 5px 5px 0;
+border-radius:0 5px 5px 0;
+
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+box-sizing:border-box;
+left:-9999px;
+opacity: 0;
+/*
+-webkit-transition: opacity 0.4s ease;
+-moz-transition: opacity 0.4s ease;
+-ms-transition: opacity 0.4s ease;
+-o-transition: opacity 0.4s ease;
+transition: opacity 0.4s ease;
+*/
+}
+
+
+.side-menu > li:hover > .sub-container{
+left:231px;
+opacity: 1;
+}
+
+
+.side-menu > li > .sub-container .b{
+float:left;
+width:33%;
+padding:0 15px;
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+box-sizing:border-box;
+}
+
+
+.side-menu .sub-container .b > ul > li{
+padding:3px 0 3px 5px;
+}
+
+.side-menu .sub-container .b > ul > li a{
+font-size:11px;
+display:block;
+}
+
+.side-menu .sub-container .b > ul > li.parent{
+padding:3px 0;
+}
+
+.side-menu .sub-container .b > ul > li.parent a{
+font-size:13px;
+font-weight:bold;
+color:#3A3A3A;
+}
+
+
+.side-menu .sub-container a{
+text-decoration:none;
+}
+
+.side-menu .sub-container a:hover{
+text-decoration:underline;
+}
