@@ -2551,3 +2551,7 @@ display:block;
     text-decoration: none;
     color:#4d4d4d;
 }
+
+span.dot { position:absolute; text-indent: -1000em; }
+span.rel { position: relative; }
+span.arm{ top:-.3ex; }
