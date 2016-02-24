@@ -481,8 +481,9 @@ $strAlt = (
 										<?}?>
 									<?}?>
 								<?}?>
-                                <dt>В наличии:</dt>
-                                <dd><?=$arResult['CATALOG_QUANTITY']?> <?=$unit?></dd>
+								<?$quanti = (int)$arResult['CATALOG_QUANTITY']?'have_it':'have_not'?>
+                                <dt class="av-q">В наличии:</dt>
+                                <dd class="av-q"><?=$arResult['CATALOG_QUANTITY']?> <?=$unit;?> </dd><i class="<?=$quanti?>"></i>
 								<?unset($arOneProp)?>
 							</dl>
 						<?}?>

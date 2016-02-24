@@ -167,8 +167,36 @@ width:58%;
 	margin: 0 5px;
 	font-weight: bold;
 	font-size:13px;
+	color:#000;
 	}
 
+.bx_item_detail .item_info_section dl dt.av-q, .bx_item_detail .item_info_section dl dd.av-q{
+		display: block;
+		margin-top:10px;
+	}
+
+	.bx_item_detail .item_info_section dl dd.av-q{
+		padding: 5px 15px;
+		margin: 5px 0 0 5px;
+		background: #f4f4f4;
+	}
+
+	.bx_item_detail .item_info_section dl  i{
+		height:20px;
+		display: block;
+		float:left;
+		background:url('/bitrix/templates/ms_shop_v3_adapt/img/c_item_q.png') no-repeat 0 0;
+		width: 18px;
+		margin-top:9px;
+		background-position: 0 2px;
+		margin-left: 5px;
+	}
+
+	.bx_item_detail .item_info_section dl  i.have_it{
+		background-position: 0 -18px;
+
+	}
+	
 	.bx_item_detail .item_buttons_counter_block{
 	display:inline-block;
 	margin-right:10px;
