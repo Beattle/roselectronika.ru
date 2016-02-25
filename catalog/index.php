@@ -31,9 +31,8 @@
 			2 => "",
 		),
 		"FILTER_PROPERTY_CODE" => array(
-			0 => "",
-			1 => "ID",
-			2 => "",
+			0 => "ID",
+			1 => "",
 		),
 		"FILTER_PRICE_CODE" => array(
 			0 => "BASE",
@@ -311,7 +310,7 @@
 		"MESS_BTN_COMPARE" => "Сравнение",
 		"MESS_BTN_DETAIL" => "Подробнее",
 		"MESS_NOT_AVAILABLE" => "Нет в наличии",
-		"DETAIL_USE_VOTE_RATING" => "Y",
+		"DETAIL_USE_VOTE_RATING" => "N",
 		"DETAIL_VOTE_DISPLAY_AS_RATING" => "rating",
 		"DETAIL_USE_COMMENTS" => "Y",
 		"DETAIL_BLOG_USE" => "N",

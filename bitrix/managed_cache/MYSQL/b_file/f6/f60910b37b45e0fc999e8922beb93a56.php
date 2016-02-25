@@ -1,7 +1,0 @@
-<?
-if($INCLUDE_FROM_CACHE!='Y')return false;
-$datecreate = '001456236456';
-$dateexpire = '001456240056';
-$ser_content = 'a:2:{s:7:"CONTENT";s:0:"";s:4:"VARS";a:1:{i:8132598;a:14:{s:2:"ID";s:7:"8132598";s:11:"TIMESTAMP_X";s:19:"15.12.2015 11:44:59";s:9:"MODULE_ID";s:6:"iblock";s:6:"HEIGHT";s:3:"330";s:5:"WIDTH";s:3:"330";s:9:"FILE_SIZE";s:4:"1550";s:12:"CONTENT_TYPE";s:10:"image/jpeg";s:6:"SUBDIR";s:10:"iblock/69c";s:9:"FILE_NAME";s:36:"69c768a011bb8cc360675d1cdf79a4b8.jpg";s:13:"ORIGINAL_NAME";s:33:"termo-fuse-ceramic-75c-3a-axi.jpg";s:11:"DESCRIPTION";s:0:"";s:10:"HANDLER_ID";N;s:11:"EXTERNAL_ID";s:32:"d82f1cd5aac203143f0e6f915de6270f";s:4:"~src";b:0;}}}';
-return true;
-?>
