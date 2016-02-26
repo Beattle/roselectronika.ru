@@ -246,10 +246,10 @@ $strAlt = (
 								<?
                                 $boolQP = ((int)$arResult['CATALOG_QUANTITY'] === 0 );
 								$boolDiscountShow = (0 < $arResult['MIN_PRICE']['DISCOUNT_DIFF']);
-                                $price = ($arResult['MIN_PRICE']['VALUE']==0)?'На заказ':$arResult['MIN_PRICE']['DISCOUNT_VALUE'];
+                                $price = ($arResult['MIN_PRICE']['VALUE']==0)?'На заказ':$arResult['MIN_PRICE']['PRINT_DISCOUNT_VALUE'];
 								?>
 								<div class="item_old_price" id="<? echo $arItemIDs['OLD_PRICE']; ?>" style="display: <? echo ($boolDiscountShow ? '' : 'none'); ?>"><? echo ($boolDiscountShow ? $arResult['MIN_PRICE']['PRINT_VALUE'] : ''); ?></div>
-								<div class="item_current_price" id="<? echo $arItemIDs['PRICE']; ?>"><? echo $price; ?> <span class="rel arm">&#x584;</span><span class="dot">руб.</span>
+								<div class="item_current_price" id="<? echo $arItemIDs['PRICE']; ?>"><? echo $price?>
                                     <?if($boolQP):?><p class="old-qp"> (Старая цена)</p><?endif;?>
                                 </div>
 							</div>
