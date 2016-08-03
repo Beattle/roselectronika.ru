@@ -34,10 +34,26 @@ foreach ($arResult["GRID"]["ROWS"] as $k => &$arItem){
     {
         $arItem['NAME'] = "$ob[VALUE] $arItem[NAME]";
     }
+	
+	/* watermark */
+	$res = CIBlockElement::GetList(array(), array("IBLOCK_ID" => 3, "ID" => $arItem["PRODUCT_ID"]));
+	while($ob = $res->GetNextElement()){ 
+		$arFields = $ob->GetFields();
+		$arFields["PROPERTIES"] = $ob->GetProperties();
+	}
+	if($arFields["PROPERTIES"]["WATER_DETAIL"]["VALUE"] != "Да") continue;
+	
+	$arWaterMark = Array(
+		array(
+			"name" => "watermark",
+			"position" => "center", // Положение
+			"type" => "image",
+			"size" => "real",
+			"file" => $_SERVER["DOCUMENT_ROOT"].'/upload/watermark-small.png', // Путь к картинке
+			"fill" => "exact",
+		)
+	);
+	$arFileTmp = CFile::ResizeImageGet($arItem['PREVIEW_PICTURE'], array("width" => 178, "height" => 178), BX_RESIZE_IMAGE_PROPORTIONAL, true, $arWaterMark);
+	$arItem["PREVIEW_PICTURE_SRC"] = $arFileTmp["src"];
 }
-
-
-
-
-
 ?>

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<? if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -12,6 +12,7 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 
+/*
 $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list", 
 	"subsections", 
@@ -38,11 +39,12 @@ $APPLICATION->IncludeComponent(
 			1 => "",
 		),
 		"SHOW_PARENT_NAME" => "Y",
-		"HIDE_SECTION_NAME" => "N"
+		"HIDE_SECTION_NAME" => "N",
+		"ADD_SECTIONS_CHAIN" => "Y",
 	),
 	false
 );
-
+*/
 if (!empty($arResult['ITEMS']))
 {
 	$templateData = array(
@@ -845,3 +847,7 @@ BX.message({
 		<?=$arResult['DESCRIPTION']?>
 	<?}?>
 <?} ?>
+
+<?php /*?><pre style="display:none;">
+<? var_dump($arResult['ITEMS'][0]);?>
+</pre><?php */?>

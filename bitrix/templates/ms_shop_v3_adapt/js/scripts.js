@@ -67,6 +67,19 @@ $(document).ready(function(){
 	});
 	
 $(function(){
+	
+	$(document).on('click', '.slider-txt_handler', function(){
+		var p = $(this).closest('.slider-txt');
+		var txt = p.find('.slider-txt_body');
+		$(this).toggleClass('active');
+		if($(this).hasClass('active')){
+			txt.slideDown();
+		} else {
+			txt.slideUp();
+		}
+		return false;
+	});
+	
 	$('.bx_catalog_grid .bx_catalog_item, .bx_catalog_carousel .bx_catalog_item').hover(function(){
 		$('#container-in').addClass('z-hover');
 	},function(){

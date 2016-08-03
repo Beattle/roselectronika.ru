@@ -4,10 +4,49 @@
 <div class="bx_catalog_tile 123">
 <h1 class="bx_catalog_tile_category_title"><?=GetMessage("SEARCH_TITLE")?></h1>
 </div>
+<? $APPLICATION->IncludeComponent(
+	"bitrix:search.title", 
+	"ms_search_catalog", 
+	array(
+		"NUM_CATEGORIES" => "1",
+		"TOP_COUNT" => "5",
+		"CHECK_DATES" => "N",
+		"SHOW_OTHERS" => "N",
+		"PAGE" => SITE_DIR."catalog/",
+		"CATEGORY_0_TITLE" => GetMessage("SEARCH_GOODS"),
+		"CATEGORY_0" => array(
+			0 => "iblock_catalog",
+		),
+		"CATEGORY_0_iblock_catalog" => array(
+			0 => "all",
+		),
+		"CATEGORY_OTHERS_TITLE" => GetMessage("SEARCH_OTHER"),
+		"SHOW_INPUT" => "Y",
+		"INPUT_ID" => "title-search-input-catalog",
+		"CONTAINER_ID" => "title-search-catalog",
+		"PRICE_CODE" => $arParams["PRICE_CODE"],
+		"SHOW_PREVIEW" => "Y",
+		"PREVIEW_WIDTH" => "75",
+		"PREVIEW_HEIGHT" => "75",
+		"CONVERT_CURRENCY" => "Y",
+		"COMPONENT_TEMPLATE" => "ms_search",
+		"ORDER" => "date",
+		"USE_LANGUAGE_GUESS" => "N",
+		"PRICE_VAT_INCLUDE" => "Y",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"CURRENCY_ID" => "RUB",
+		
+		"RESTART" => "Y", 
+		"NO_WORD_LOGIC" => "Y",
+	),
+	false
+);?>
+
 
 <? $APPLICATION->IncludeComponent(
 	"bitrix:catalog.search",
-	"",
+	//"",
+	"catalog",
 	array(
 			"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 			"IBLOCK_ID" => $arParams["IBLOCK_ID"],
@@ -99,7 +138,7 @@
 			"CACHE_FILTER" => "N",
 			"CACHE_GROUPS" => "N",
 
-			"RESTART" => "N",
+			"RESTART" => "Y",
 			"NO_WORD_LOGIC" => "Y",
 			"USE_LANGUAGE_GUESS" => "N",
 			"CHECK_DATES" => "Y",

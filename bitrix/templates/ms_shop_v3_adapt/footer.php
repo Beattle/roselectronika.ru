@@ -1,8 +1,42 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<? if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 		<?if ($APPLICATION->GetCurPage(true) == SITE_DIR."index.php" || !strpos($APPLICATION->GetCurPage(true),"catalog")):?>			
 			</div>
 		<?endif?>
-					</div>
+					</div>                    
+                    
+			
+            <div style="clear:both;"></div>
+            <div class="bottom-btns">
+            <div class="bottom-btns__btn">
+            <? $APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
+                Array(
+                    "AREA_FILE_SHOW" => "file",
+                    "AREA_FILE_SUFFIX" => "inc",
+                    "COMPONENT_TEMPLATE" => ".default",
+                    "EDIT_TEMPLATE" => "",
+                    "PATH" => "/include/btn_bottom_1.php"
+                )
+            );?>
+            </div>
+            <div class="bottom-btns__sep">
+            </div>
+            <div class="bottom-btns__btn">
+            <? $APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
+                Array(
+                    "AREA_FILE_SHOW" => "file",
+                    "AREA_FILE_SUFFIX" => "inc",
+                    "COMPONENT_TEMPLATE" => ".default",
+                    "EDIT_TEMPLATE" => "",
+                    "PATH" => "/include/btn_bottom_2.php"
+                )
+            );?>
+            </div>
+            </div>
+                    
 		</section>
 		
 	</div>

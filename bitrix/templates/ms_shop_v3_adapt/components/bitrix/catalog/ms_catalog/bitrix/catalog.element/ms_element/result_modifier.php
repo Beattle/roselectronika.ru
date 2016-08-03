@@ -208,6 +208,42 @@ if (empty($productSlider))
 		0 => $arEmptyPreview
 	);
 }
+
+/* watermark */
+$arWaterMark = Array(
+	array(
+		"name" => "watermark",
+		"position" => "center", // Положение
+		"type" => "image",
+		//"size" => "big",
+		"coefficient" => 0.9,
+		"file" => $_SERVER["DOCUMENT_ROOT"].'/upload/watermark.png', // Путь к картинке
+		//"fill" => "exact",
+	)
+);
+if('Y' == $arParams['ADD_DETAIL_TO_SLIDER'])
+{
+	$img_i = -1;
+}
+else
+{
+	$img_i = 0;
+}
+foreach($productSlider as $key => $sliderItem){
+	$img_i++;
+	if($img_i == 0)
+	{
+		if($arResult["PROPERTIES"]["WATER_DETAIL"]["VALUE"] != "Да") continue;
+	}
+	else
+	{
+		if($arResult["PROPERTIES"]["WATER_MORE"]["VALUE"][$img_i - 1] != "Y" and
+			$arResult["PROPERTIES"]["WATER_MORE"]["VALUE"][$img_i - 1] != "y") continue;
+	}
+	$arFileTmp = CFile::ResizeImageGet($sliderItem["ID"], array("width" => $sliderItem["WIDTH"], "height" => $sliderItem["HEIGHT"]), BX_RESIZE_IMAGE_PROPORTIONAL, true, $arWaterMark);
+	$productSlider[$key]["SRC"] = $arFileTmp["src"];
+}
+
 $productSliderCount = count($productSlider);
 $arResult['SHOW_SLIDER'] = true;
 $arResult['MORE_PHOTO'] = $productSlider;

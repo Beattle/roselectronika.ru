@@ -610,10 +610,9 @@ text-align:left;
 }
 
 #header-contacts .phone{
-font-size:24px;
+font-size:20px;
 margin:0 0 1px;
-color:#007fb2;
-white-space:nowrap;
+white-space:normal;
 }
 
 #header-contacts .feedback-link{padding:4px 0 0;}
@@ -2542,10 +2541,86 @@ display:block;
 }
 
 .resetmp{
-    margin: 0!important;
-    padding: 0!important;
-    line-height: 1.5;
+    padding-left: 15px;
+    padding-bottom: 1px;
+	line-height: 0.7;
 }
+
+
+.akbgoodtable{
+  border-collapse: collapse !important;
+  background: white !important;
+  text-align: left !important;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif !important;
+  font-size: 14px !important;
+  margin: 2% 5% !important;
+}
+.akbgoodtable th {
+  font-weight: normal !important;
+  color: #039 !important;
+  border-bottom: 2px solid #6678b1 !important;
+  padding: 2% 2% !important;
+  text-align: left !important;
+}
+.akbgoodtable td {
+  padding: 0.2% 0.2% !important;
+  transition: .3s linear !important;
+  text-align: left;
+  border-bottom: 1px solid #ccc !important;
+}
+.akbgoodtable tr:hover td{
+  color: #6699ff !important;
+  cursor: default;
+}
+@media (max-width: 720px) {
+	.akbgoodtable{
+	  margin: 0 !important;
+	}
+	.akbgoodtable th {
+		padding: 0 !important;
+	}
+	.akbgoodtable td {
+		padding: 0 !important;
+	}
+}
+
+.etpotable{
+  border-collapse: collapse !important;
+  background: white !important;
+  text-align: left !important;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif !important;
+  font-size: 12px !important;
+  margin: 2% 5% !important;
+}
+.etpotable th {
+  font-weight: normal !important;
+  color: #039 !important;
+  border-bottom: 2px solid #6678b1 !important;
+  padding: 2% 2% !important;
+  text-align: left !important;
+}
+.etpotable td {
+  padding: 0.2% 0.2% !important;
+  transition: .3s linear !important;
+  text-align: left;
+  border-bottom: 1px solid #ccc !important;
+}
+.etpotable tr:hover td{
+  color: #6699ff !important;
+  cursor: default;
+}
+@media (max-width: 720px) {
+	.etpotable{
+	  margin: 0 !important;
+	}
+	.etpotable th {
+		padding: 0 !important;
+	}
+	.etpotable td {
+		padding: 0 !important;
+	}
+}
+
 
 .bx_catalog_grid .bx_catalog_item_price span.old-qp,.bx_catalog_list .bx_catalog_item_price .bx_price span.old-qp{
     text-decoration: none;
@@ -2555,3 +2630,156 @@ display:block;
 span.dot { position:absolute; text-indent: -1000em; }
 span.rel { position: relative; }
 span.arm{ top:-.3ex; }
+
+/* slider-txt */
+.slider-txt {
+}
+.slider-txt_handler {
+	margin: 15px 0 20px;
+}
+.slider-txt_handler_on {
+}
+.slider-txt_handler_off {
+	display: none;
+}
+.slider-txt_handler.active .slider-txt_handler_on {
+	display: none;
+}
+.slider-txt_handler.active .slider-txt_handler_off {
+	display: block;
+}
+.slider-txt_body {
+	display: none;
+}
+/* btn-style */
+.btn-style {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	text-align: center;
+	white-space: nowrap;
+}
+.btn__span {
+	display: inline-block;
+	vertical-align: middle;
+	white-space: normal;
+}
+.btn__i {
+	display: inline-block;
+	height: 100%;
+	width: 1px;
+	vertical-align: middle;
+}
+.btn__link {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	border: none;
+	background: url(img/spacer.png) 0 0 repeat;
+}
+.btn__link:hover {
+	text-decoration: none;
+}
+/* btn-style1 */
+.btn-style1 {
+	height: 70px;
+	padding-left: 77px;
+	line-height: 1.5;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #0e0e0e;
+	border: 2px solid #fe8718;
+	border-radius: 4px;
+}
+@media (min-width:768px){
+.btn-style1 {
+	font-size: 17px;
+}	
+}
+.btn-style1:after {
+	content: " ";
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 77px;
+	overflow: hidden;
+	background: #f1efef url(img/btn-icon-voskl.png) center center no-repeat;
+}
+.btn-style1 .btn__span {
+	margin: 0 10px;
+}
+.btn-style1:hover {
+	color: #613700;
+}
+/* btn-style2 */
+.btn-style2 {
+	height: 70px;
+	padding-left: 77px;
+	line-height: 1.5;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #0e0e0e;
+	border: 2px solid #e0e0df;
+	border-radius: 4px;
+}
+@media (min-width:768px){
+.btn-style2 {
+	font-size: 17px;
+}	
+}
+.btn-style2:after {
+	content: " ";
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 77px;
+	overflow: hidden;
+	background: #f1efef url(img/btn-icon-voskl.png) center center no-repeat;
+}
+.btn-style2 .btn__span {
+	margin: 0 10px;
+}
+.btn-style2:hover {
+	color: #613700;
+}
+/* bottom-btns */
+.bottom-btns {
+	margin-top: 40px;
+	text-align: center;
+}
+.bottom-btns__btn {
+	margin: 0 0 40px;
+}
+.bottom-btns__btn .btn-style {
+	display: block;
+}
+@media (min-width:992px){
+.bottom-btns {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+.bottom-btns__btn {
+	display: table-cell;
+	margin: 0;
+}
+.bottom-btns__sep {
+	display: table-cell;
+	width: 40px;
+}
+}
+
+
+
+

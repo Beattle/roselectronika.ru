@@ -126,7 +126,7 @@ if ($verticalGrid)
 
 ?>
 	
-<?$APPLICATION->IncludeComponent(
+<? $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list",
 	"ms_section_list_site2",
 	array(
@@ -144,6 +144,7 @@ if ($verticalGrid)
 		"SHOW_PARENT_NAME" => $arParams["SECTIONS_SHOW_PARENT_NAME"],
 		"HIDE_SECTION_NAME" => (isset($arParams["SECTIONS_HIDE_SECTION_NAME"]) ? $arParams["SECTIONS_HIDE_SECTION_NAME"] : "N"),
 		"ADD_SECTIONS_CHAIN" => "N",
+		//"ADD_SECTIONS_CHAIN" => (isset($arParams["ADD_SECTIONS_CHAIN"]) ? $arParams["ADD_SECTIONS_CHAIN"] : ''),
 	),
 	$component
 );?>
@@ -159,7 +160,7 @@ if ($verticalGrid)
 						);
 						?>
 					</div>
-                <?$APPLICATION->IncludeComponent("bitrix:menu", "ms_catalog_sidebar", Array(
+                <? $APPLICATION->IncludeComponent("bitrix:menu", "ms_catalog_sidebar", Array(
                         "ROOT_MENU_TYPE" => "catalog",	// Тип меню для первого уровня
                         "MENU_THEME" => "site",	// Тема меню
                         "MENU_CACHE_TYPE" => "A",	// Тип кеширования
@@ -176,7 +177,7 @@ if ($verticalGrid)
                 );?>
 
 <?if ($APPLICATION->GetCurPage(true) == SITE_DIR."index.php"):?>	
-	<?$APPLICATION->IncludeComponent(
+	<? $APPLICATION->IncludeComponent(
 		"bitrix:main.include",
 		"",
 		Array(
@@ -192,8 +193,8 @@ if ($verticalGrid)
 	
 <?$APPLICATION->ShowViewContent("featured")?>
 	
-<?if (!strpos($APPLICATION->GetCurPage(true),"catalog") || $APPLICATION->GetCurPage(true) == SITE_DIR."index.php"):?>
-				<?$APPLICATION->IncludeComponent(
+<? if (!strpos($APPLICATION->GetCurPage(true),"catalog") || $APPLICATION->GetCurPage(true) == SITE_DIR."index.php"):?>
+				<? $APPLICATION->IncludeComponent(
 					"bitrix:main.include",
 					"",
 					Array(
@@ -229,14 +230,18 @@ if ($verticalGrid)
 <div class="content">
 
 
-				<?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "ms_breadcrumb", Array(
-	"START_FROM" => "1",	// Номер пункта, начиная с которого будет построена навигационная цепочка
-	"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
-	"SITE_ID" => "-",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+<? $APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb", 
+	"ms_breadcrumb", 
+	array(
+		"START_FROM" => "1",
+		"PATH" => "",
+		"SITE_ID" => "s1",
+		"COMPONENT_TEMPLATE" => "ms_breadcrumb"
 	),
 	false,
 	array(
-	"HIDE_ICONS" => "Y"
+		"HIDE_ICONS" => "Y"
 	)
 );?>
 
@@ -254,7 +259,7 @@ $sort_order = array_key_exists("order", $_REQUEST) && in_array(ToLower($_REQUEST
 
 
 
-<?/*$APPLICATION->IncludeComponent(
+<? /*$APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list",
 	"title",
 	array(
@@ -377,8 +382,56 @@ if($_REQUEST["limit"] == "48")
 $intSectionID = 0;
                 } ?>
 
-
-<?$intSectionID = $APPLICATION->IncludeComponent(
+<?
+$APPLICATION->IncludeComponent(
+	"bitrix:catalog.section.list", 
+	"subsections", 
+	/*array(
+	    "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
+		"SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
+		"SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => $arParams["CACHE_TIME"],
+		"CACHE_GROUPS" => "N",
+		"COUNT_ELEMENTS" => "N",
+		"TOP_DEPTH" => $arParams["SECTION_TOP_DEPTH"],
+		// "SECTION_URL" => $arResult["SECTION_PAGE_URL"],
+		"VIEW_MODE" => "TILE",
+		"COMPONENT_TEMPLATE" => "subsections",
+		"SECTION_CODE" => "",
+		"SECTION_FIELDS" => array(
+			0 => "",
+			1 => "",
+		),
+		"SECTION_USER_FIELDS" => array(
+			0 => "",
+			1 => "",
+		),
+		"SHOW_PARENT_NAME" => "Y",
+		"HIDE_SECTION_NAME" => "N",
+		"ADD_SECTIONS_CHAIN" => "Y",
+	),*/
+	array(
+		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
+		"SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
+		"SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
+		"CACHE_TYPE" => $arParams["CACHE_TYPE"],
+		"CACHE_TIME" => $arParams["CACHE_TIME"],
+		"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+		"COUNT_ELEMENTS" => $arParams["SECTION_COUNT_ELEMENTS"],
+		"TOP_DEPTH" => $arParams["SECTION_TOP_DEPTH"],
+		"SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
+		"VIEW_MODE" => $arParams["SECTIONS_VIEW_MODE"],
+		"SHOW_PARENT_NAME" => $arParams["SECTIONS_SHOW_PARENT_NAME"],
+		"HIDE_SECTION_NAME" => (isset($arParams["SECTIONS_HIDE_SECTION_NAME"]) ? $arParams["SECTIONS_HIDE_SECTION_NAME"] : "N"),
+		"ADD_SECTIONS_CHAIN" => (isset($arParams["ADD_SECTIONS_CHAIN"]) ? $arParams["ADD_SECTIONS_CHAIN"] : '')
+	),
+	$component
+);
+?>
+<? $intSectionID = $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section",
 	$viewMode,
 	array(
@@ -465,7 +518,8 @@ $intSectionID = 0;
 		'MESS_NOT_AVAILABLE' => $arParams['MESS_NOT_AVAILABLE'],
 
 		'TEMPLATE_THEME' => (isset($arParams['TEMPLATE_THEME']) ? $arParams['TEMPLATE_THEME'] : ''),
-		"ADD_SECTIONS_CHAIN" => "N"
+		"ADD_SECTIONS_CHAIN" => "N",
+		//"ADD_SECTIONS_CHAIN" => (isset($arParams["ADD_SECTIONS_CHAIN"]) ? $arParams["ADD_SECTIONS_CHAIN"] : ''),
 	),
 	$component
 );?><?
@@ -475,7 +529,7 @@ if ($verticalGrid)
 }
                // }
 ?>
-<?/**
+<? /**
 if (\Bitrix\Main\ModuleManager::isModuleInstalled("sale"))
 {
 	$arRecomData = array();

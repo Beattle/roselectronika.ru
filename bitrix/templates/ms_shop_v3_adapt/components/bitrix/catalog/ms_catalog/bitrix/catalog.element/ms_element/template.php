@@ -449,10 +449,10 @@ $strAlt = (
 			
 			<div class="pp_center">
 				<!-- Top properties -->
-				<?if (!empty($arResult['DISPLAY_PROPERTIES']) || $arResult['SHOW_OFFERS_PROPS']) {?>
+				<? //if (!empty($arResult['DISPLAY_PROPERTIES']) || $arResult['SHOW_OFFERS_PROPS']) {?>
 					<div class="item_info_section">
                         <? $unit = is_array($arResult['PROPERTIES']['UNIT_M']['VALUE']) ? implode(' / ', $arResult['PROPERTIES']['UNIT_M']['VALUE']) : $arResult['PROPERTIES']['UNIT_M']['VALUE']; ?>
-						<?if (!empty($arResult['DISPLAY_PROPERTIES'])) {?>
+						<? //if (!empty($arResult['DISPLAY_PROPERTIES'])) {?>
 							<dl>
 								<?
 								$i = 0;
@@ -486,19 +486,19 @@ $strAlt = (
                                 <dd class="av-q"><?=$arResult['CATALOG_QUANTITY']?> <?=$unit;?> </dd><i class="<?=$quanti?>"></i>
 								<?unset($arOneProp)?>
 							</dl>
-						<?}?>
+						<? //}?>
 						
-						<?if ($arResult['SHOW_OFFERS_PROPS']) {?>
+						<? if ($arResult['SHOW_OFFERS_PROPS']) {?>
 							<div class="<? echo $arItemIDs['DISPLAY_PROP_DIV'] ?>" style="display: none;"></div>
-						<?}?>
+						<? }?>
 
-						<?if (!empty($arResult['DISPLAY_PROPERTIES']) && count($arResult['DISPLAY_PROPERTIES']) >= 5) {?>
+						<? if (!empty($arResult['DISPLAY_PROPERTIES']) && count($arResult['DISPLAY_PROPERTIES']) >= 5) {?>
 							<div class="link-to-props">
 								<a class="dotted" href="javascript:void(0);"><? echo GetMessage('ALL_PROPERTIES'); ?></a>
 							</div>
-						<?}?>
+						<? }?>
 					</div>
-				<?}?>
+				<? //}?>
 				<!-- End Top properties -->
 				
 				<!-- Preview text-->
@@ -597,9 +597,9 @@ $strAlt = (
 						<a class="123" href="#detail-text"><? echo GetMessage('FULL_DESCRIPTION'); ?></a>
 					<?}?>
 					
-					<?if (!empty($arResult['DISPLAY_PROPERTIES'])) {?>
+					<? //if (!empty($arResult['DISPLAY_PROPERTIES'])) {?>
 						<a class="123" href="#props"><? echo GetMessage('FULL_PROPERTIES'); ?></a>
-					<?}?>
+					<? //}?>
 					
 					<?if ('Y' == $arParams['USE_COMMENTS']) {?>
 						<a class="123" href="#comments"><? echo GetMessage('COMMENTS'); ?></a>
@@ -623,19 +623,19 @@ $strAlt = (
 				<!-- End Detail text content -->
 				
 				<!-- Properties tab content -->
-				<?if (!empty($arResult['DISPLAY_PROPERTIES']) || $arResult['SHOW_OFFERS_PROPS']) {?>
+				<? //if (!empty($arResult['DISPLAY_PROPERTIES']) || $arResult['SHOW_OFFERS_PROPS']) {?>
                     <? $unit = is_array($arResult['PROPERTIES']['UNIT_M']['VALUE']) ? implode(' / ', $arResult['PROPERTIES']['UNIT_M']['VALUE']) : $arResult['PROPERTIES']['UNIT_M']['VALUE']; ?>
 					<div class="tab" id="tab-props">
 						<div class="properties clearfix">		
-							<?if ($arResult['SHOW_OFFERS_PROPS']) {?>
+							<? if ($arResult['SHOW_OFFERS_PROPS']) {?>
 								<div class="<? echo $arItemIDs['DISPLAY_PROP_DIV'] ?>" style="display: none;"></div>
-							<?}?>
-							<?if (!empty($arResult['DISPLAY_PROPERTIES'])) {?>
+							<? }?>
+							<? //if (!empty($arResult['DISPLAY_PROPERTIES'])) {?>
                                 <dl class="item">
                                     <dt>ID товара:</dt>
                                     <dd><?=$arResult['XML_ID']?></dd>
                                 </dl>
-								<?foreach ($arResult['DISPLAY_PROPERTIES'] as &$arOneProp) {?>
+								<? foreach ($arResult['DISPLAY_PROPERTIES'] as &$arOneProp) {?>
 
 
 
@@ -655,16 +655,16 @@ $strAlt = (
 										</dl>
 
 									<?}?>
-								<?}?>
+								<? }?>
                                 <dl class="item">
                                     <dt>В наличии:</dt>
                                     <dd><?=$arResult['CATALOG_QUANTITY']?> <?=$unit?></dd>
                                 </dl>
 							<?unset($arOneProp)?>
-							<?}?>
+							<? //}?>
 						</div>
 					</div>		
-				<?}?>
+				<? //}?>
 				<!-- End Properties tab content  -->
 					
 				<!-- Comments content -->
@@ -887,7 +887,7 @@ var ItemJsCompare_<?=$arResult['ID']?> = {
 };
 </script>
 
-<?if ($arResult['PROPERTIES']['ANALOG']['VALUE'] !== 0 && !empty($arResult['PROPERTIES']['ANALOG']['VALUE'])){
+<? if ($arResult['PROPERTIES']['ANALOG']['VALUE'] !== 0 && !empty($arResult['PROPERTIES']['ANALOG']['VALUE'])){
     $APPLICATION->IncludeComponent("hipno:analog.list", ".default",
         Array(
             'IBLOCK_ID' => $arResult['IBLOCK_ID'],
@@ -899,6 +899,8 @@ var ItemJsCompare_<?=$arResult['ID']?> = {
 }
 
  // echo '<pre>'.print_r($arResult,true).'</pre>';
-
-
-
+ 
+?>
+<?php /*?><pre style="display:none;">
+<? var_dump($arResult);?>
+</pre><?php */?>

@@ -195,33 +195,42 @@ false
 			</div>
 			
 			<div class="h_item h_search">
-				<?$APPLICATION->IncludeComponent("bitrix:search.title", "ms_search", Array(
-					"NUM_CATEGORIES" => "1",	// Количество категорий поиска
-					"TOP_COUNT" => "5",	// Количество результатов в каждой категории
-					"CHECK_DATES" => "N",	// Искать только в активных по дате документах
-					"SHOW_OTHERS" => "N",	// Показывать категорию "прочее"
-					"PAGE" => SITE_DIR."catalog/",	// Страница выдачи результатов поиска (доступен макрос #SITE_DIR#)
-					"CATEGORY_0_TITLE" => GetMessage("SEARCH_GOODS"),	// Название категории
-					"CATEGORY_0" => array(	// Ограничение области поиска
-						0 => "iblock_catalog",
-					),
-					"CATEGORY_0_iblock_catalog" => array(	// Искать в информационных блоках типа "iblock_catalog"
-						0 => "all",
-					),
-					"CATEGORY_OTHERS_TITLE" => GetMessage("SEARCH_OTHER"),
-					"SHOW_INPUT" => "Y",	// Показывать форму ввода поискового запроса
-					"INPUT_ID" => "title-search-input",	// ID строки ввода поискового запроса
-					"CONTAINER_ID" => "search",	// ID контейнера, по ширине которого будут выводиться результаты
-					"PRICE_CODE" => array(	// Тип цены
-						0 => "BASE",
-					),
-					"SHOW_PREVIEW" => "Y",	// Показать картинку
-					"PREVIEW_WIDTH" => "75",	// Ширина картинки
-					"PREVIEW_HEIGHT" => "75",	// Высота картинки
-					"CONVERT_CURRENCY" => "Y",	// Показывать цены в одной валюте
-					),
-					false
-				);?>
+				<?$APPLICATION->IncludeComponent(
+	"bitrix:search.title", 
+	"ms_search", 
+	array(
+		"NUM_CATEGORIES" => "1",
+		"TOP_COUNT" => "5",
+		"CHECK_DATES" => "N",
+		"SHOW_OTHERS" => "N",
+		"PAGE" => SITE_DIR."catalog/",
+		"CATEGORY_0_TITLE" => GetMessage("SEARCH_GOODS"),
+		"CATEGORY_0" => array(
+			0 => "iblock_catalog",
+		),
+		"CATEGORY_0_iblock_catalog" => array(
+			0 => "all",
+		),
+		"CATEGORY_OTHERS_TITLE" => GetMessage("SEARCH_OTHER"),
+		"SHOW_INPUT" => "Y",
+		"INPUT_ID" => "title-search-input",
+		"CONTAINER_ID" => "search",
+		"PRICE_CODE" => array(
+			0 => "BASE",
+		),
+		"SHOW_PREVIEW" => "Y",
+		"PREVIEW_WIDTH" => "75",
+		"PREVIEW_HEIGHT" => "75",
+		"CONVERT_CURRENCY" => "Y",
+		"COMPONENT_TEMPLATE" => "ms_search",
+		"ORDER" => "date",
+		"USE_LANGUAGE_GUESS" => "N",
+		"PRICE_VAT_INCLUDE" => "Y",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"CURRENCY_ID" => "RUB"
+	),
+	false
+);?>
 			</div>
 			
 			<div id="header-contacts" class="h_item">
@@ -270,23 +279,29 @@ false
 		</header>
 		
 		<div id="top-nav">
-			<?if($theme["TEMPLATE_TYPE"] == "type1"):?>
-				<?$APPLICATION->IncludeComponent("bitrix:menu", "ms_multilevel_top_menu", Array(
-				"ROOT_MENU_TYPE" => "top",	// Тип меню для первого уровня
-				"MENU_THEME" => "site",	// Тема меню
-				"MENU_CACHE_TYPE" => "A",	// Тип кеширования
-				"MENU_CACHE_TIME" => "36000000",	// Время кеширования (сек.)
-				"MENU_CACHE_USE_GROUPS" => "N",	// Учитывать права доступа
-				"MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
-				"MAX_LEVEL" => "1",	// Уровень вложенности меню
-				"CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
-				"USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
-				"DELAY" => "N",	// Откладывать выполнение шаблона меню
-				"ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
-				),
-				false
-				);?>
-			<?elseif($theme["TEMPLATE_TYPE"] == "type2"):?>
+        	<? if($APPLICATION->GetCurDir() != '/test/'):?>
+			<? if($theme["TEMPLATE_TYPE"] == "type1"):?>
+				<?$APPLICATION->IncludeComponent(
+	"bitrix:menu", 
+	"ms_multilevel_top_menu1", 
+	array(
+		"ROOT_MENU_TYPE" => "top",
+		"MENU_THEME" => "site",
+		"MENU_CACHE_TYPE" => "A",
+		"MENU_CACHE_TIME" => "36000000",
+		"MENU_CACHE_USE_GROUPS" => "N",
+		"MENU_CACHE_GET_VARS" => array(
+		),
+		"MAX_LEVEL" => "2",
+		"CHILD_MENU_TYPE" => "left",
+		"USE_EXT" => "N",
+		"DELAY" => "N",
+		"ALLOW_MULTI_SELECT" => "Y",
+		"COMPONENT_TEMPLATE" => "ms_multilevel_top_menu1"
+	),
+	false
+);?>
+			<? elseif($theme["TEMPLATE_TYPE"] == "type2"):?>
 				<?$APPLICATION->IncludeComponent("bitrix:menu", "ms_multilevel_top_menu", Array(
 				"ROOT_MENU_TYPE" => "top",	// Тип меню для первого уровня
 				"MENU_THEME" => "site",	// Тема меню
@@ -302,7 +317,29 @@ false
 				),
 				false
 				);?>			
-			<?endif?>
+			<? endif?>
+            <? else:?>
+			<? $APPLICATION->IncludeComponent(
+	"bitrix:menu", 
+	"ms_multilevel_top_menu1", 
+	array(
+		"ROOT_MENU_TYPE" => "top",
+		"MENU_THEME" => "site",
+		"MENU_CACHE_TYPE" => "A",
+		"MENU_CACHE_TIME" => "36000000",
+		"MENU_CACHE_USE_GROUPS" => "N",
+		"MENU_CACHE_GET_VARS" => array(
+		),
+		"MAX_LEVEL" => "2",
+		"CHILD_MENU_TYPE" => "left",
+		"USE_EXT" => "N",
+		"DELAY" => "N",
+		"ALLOW_MULTI_SELECT" => "N",
+		"COMPONENT_TEMPLATE" => "ms_multilevel_top_menu1"
+	),
+	false
+);?>
+            <? endif;?>
 		</div>
 		
 		<section class="clearfix">
@@ -319,9 +356,9 @@ false
 			<?endif?>
 		<?endif?>
 
-<?$APPLICATION->ShowViewContent("sidebar_filter_empty")?>
+<? $APPLICATION->ShowViewContent("sidebar_filter_empty")?>
 		
-<?if (!strpos($APPLICATION->GetCurPage(true),"personal") && !strpos($APPLICATION->GetCurPage(true),"cart")):?>
+<? if (!strpos($APPLICATION->GetCurPage(true),"personal") && !strpos($APPLICATION->GetCurPage(true),"cart")):?>
 			<?if($APPLICATION->GetCurPage(true) == SITE_DIR."index.php" || !strpos($APPLICATION->GetCurPage(true),"catalog")):?>
 			<aside id="column-l">
 				<?$APPLICATION->ShowViewContent("sidebar_filter")?>
@@ -385,17 +422,17 @@ false
 				
 			</aside>
 			<?endif?>
-<?endif?>
+<? endif?>
 
-<?if ($APPLICATION->GetCurPage(true) == SITE_DIR."index.php" || !strpos($APPLICATION->GetCurPage(true),"catalog")):?>			
+<? if ($APPLICATION->GetCurPage(true) == SITE_DIR."index.php" || !strpos($APPLICATION->GetCurPage(true),"catalog")):?>			
 <div class="content">
-<?endif?>
+<? endif?>
 		
 			<div class="content full-w">
-<?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.small", "ms_small_basket", Array(),false,Array('HIDE_ICONS' => 'Y'));?>
+<? $APPLICATION->IncludeComponent("bitrix:sale.basket.basket.small", "ms_small_basket", Array(),false,Array('HIDE_ICONS' => 'Y'));?>
 
-<?if (!strpos($APPLICATION->GetCurPage(true),"catalog") && $APPLICATION->GetCurPage(true) !== SITE_DIR."index.php"):?>
-<?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "ms_breadcrumb", Array(
+<? if (!strpos($APPLICATION->GetCurPage(true),"catalog") && $APPLICATION->GetCurPage(true) !== SITE_DIR."index.php"):?>
+<? $APPLICATION->IncludeComponent("bitrix:breadcrumb", "ms_breadcrumb", Array(
 	"START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
 	"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
 	"SITE_ID" => "-",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
@@ -405,9 +442,9 @@ false
 	"HIDE_ICONS" => "Y"
 	)
 );?>
-<?endif?>
+<? endif?>
 
-<?if($theme["TEMPLATE_TYPE"] == "type2"):?>
+<? if($theme["TEMPLATE_TYPE"] == "type2"):?>
 	<?if ($APPLICATION->GetCurPage(true) == SITE_DIR."index.php"):?>
 		<?
 		$APPLICATION->IncludeFile(
@@ -417,4 +454,4 @@ false
 		);
 		?>
 	<?endif?>
-<?endif?>
+<? endif?>

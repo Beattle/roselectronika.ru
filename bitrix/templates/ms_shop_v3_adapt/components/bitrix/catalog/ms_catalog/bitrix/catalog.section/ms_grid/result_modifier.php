@@ -178,6 +178,23 @@ if (!empty($arResult['ITEMS']))
 		$arItem['SECOND_PICT'] = false;
 		$arItem['PRODUCT_PREVIEW'] = $productPictures['PICT'];
 		$arItem['PRODUCT_PREVIEW_SECOND'] = $productPictures['SECOND_PICT'];
+		
+		/* watermark */
+		$arWaterMark = Array(
+			array(
+				"name" => "watermark",
+				"position" => "center", // Положение
+				"type" => "image",
+				"size" => "real",
+				"file" => $_SERVER["DOCUMENT_ROOT"].'/upload/watermark-small.png', // Путь к картинке
+				"fill" => "exact",
+			)
+		);
+		if($arItem["PROPERTIES"]["WATER_DETAIL"]["VALUE"] == "Да")
+		{
+			$arFileTmp = CFile::ResizeImageGet($arItem['PREVIEW_PICTURE']["ID"], array("width" => 178, "height" => 178), BX_RESIZE_IMAGE_PROPORTIONAL, true, $arWaterMark);
+			$arItem['PREVIEW_PICTURE']['SRC'] = $arFileTmp["src"];
+		}
 
 		if ($arResult['MODULES']['catalog'])
 		{
