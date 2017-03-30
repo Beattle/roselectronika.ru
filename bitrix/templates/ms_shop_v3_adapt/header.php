@@ -48,7 +48,8 @@ CJSCore::Init(array("fx"));
 	<!--Fancybox-->
 	<?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/libs/fancybox/jquery.fancybox.css');?>	
 	<?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/libs/fancybox/jquery.fancybox.pack.js');?>
-	
+    <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/jquery.the-modal.js');?>
+
 	<link href="<?=SITE_TEMPLATE_PATH?>/css/responsive.css" media="screen" rel="stylesheet" type="text/css"/>
 
 	<?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/jquery.placeholder.js');?>
@@ -275,6 +276,9 @@ false
 						false
 					);?>
 				</div>
+                    <div id="btn-c-b-cont">
+                        <button>Задать вопрос</button>
+                    </div>
 			</div>
 		</header>
 		

@@ -2780,6 +2780,172 @@ span.arm{ top:-.3ex; }
 }
 }
 
+#btn-c-b-cont{
+	clear: both;
+	width: 202px;
+	float: right;
+}
+
+#btn-c-b-cont button {
+	display: block;
+	padding: 12px 0;
+	width: 202px;
+	background: none;
+	border: 2px solid #fe9229;
+	-webkit-border-radius: 4px;
+	-moz-border-radius:    4px;
+	border-radius:         4px;
+	margin-top: 15px;
+	text-transform: uppercase;
+	cursor: pointer;
+	font-size: 15px;
+	letter-spacing: 0.5px;
+}
+
+
+#btn-c-b-cont button:hover{
+	background: #fe9229;
+	color: #FFF;
+}
+
+.c-b-cont{
+	width:370px;
+	padding:25px;
+	background: #dde7e9;
+	border: 7px solid #676d7d;
+	-webkit-border-radius: 7px;
+	-moz-border-radius:    7px;
+	border-radius:         7px;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
+	margin:auto;
+	height: 459px;
+}
+
+.c-b-cont .theClose{
+	position: absolute;
+	right: 10px;
+	top:10px;
+	background: url('img/crest.png') no-repeat;
+	width: 16px;
+	height: 16px;
+	text-decoration: none;
+}
+
+#c-b-form fieldset{
+	border:none;}
+#c-b-form label{
+	display:block;
+}
+#c-b-form legend{
+	text-transform:uppercase;
+	display: block;
+	text-align: center;
+	width: 100%;
+	font-size: 18px;
+	margin-bottom: 17px;
+}
+#c-b-form label{
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+#c-b-form input{
+	border: 1px solid #939d9f;
+	height: 47px;
+	display: block;
+	width: 100%;
+	-webkit-border-radius: 7px;
+	-moz-border-radius:    7px;
+	border-radius:         7px;
+	margin-bottom: 20px;
+	-webkit-box-shadow: 0 1px 5px #939d9f inset;
+	-moz-box-shadow:    0 1px 5px #939d9f inset;
+	box-shadow:         0 1px 5px #939d9f inset;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:    border-box;
+	box-sizing:         border-box;
+	padding: 0 15px;
+}
+
+#c-b-form textarea{
+	border: 1px solid #939d9f;
+	width: 100%;
+	resize: none;
+	height: 150px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius:    7px;
+	border-radius:         7px;
+	-webkit-box-shadow: 0 1px 5px #939d9f inset;
+	-moz-box-shadow:    0 1px 5px #939d9f inset;
+	box-shadow:         0 1px 5px #939d9f inset;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:    border-box;
+	box-sizing:         border-box;
+	padding:  5px 15px;
+}
+
+#c-b-form input[type=submit]{
+	width: 150px;
+	border: 2px solid #fe9229;
+	-webkit-border-radius: 4px;
+	-moz-border-radius:    4px;
+	border-radius:         4px;
+	text-transform: uppercase;
+	padding: 12px 28px;
+	margin: 0 auto;
+	display: block;
+	-webkit-box-shadow: none;
+	-moz-box-shadow:    none;
+	box-shadow:         none;
+	font-weight: bold;
+	cursor: pointer;
+	margin-top: 15px;
+	height: 48px;
+}
+
+#c-b-form input[type=submit]:hover{
+	background:  #fe9229;
+	color:#fff;
+}
+
+.themodal-lock {
+	/* when modal is opened we're removing scrollbars from the main content */
+	overflow: hidden;
+}
+
+.themodal-overlay {
+	/* overlay will stay fixed and will take all the space available */
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	top: 0;
+	right: 0;
+	z-index: 100;
+
+	/* if modal content doesn't fit inside the overlay, display scrollbars */
+	overflow: auto;
+
+	/* allow one-finger iPad scrolling */
+	-webkit-overflow-scrolling: touch;
+
+}
+
+/* fix for iPad glitches */
+.themodal-overlay > * {
+	-webkit-transform: translateZ(0px);
+}
+
+.themodal-overlay {
+	background: rgba(0, 0, 0, 0.5);
+	/* IE6–IE8 */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = #7F000000, endColorstr = #7F000000);
+	zoom: 1;
+}
+
+
 
 
 

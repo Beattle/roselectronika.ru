@@ -737,4 +737,50 @@ $(function(){
 	});
 	
 });
+
+    $('#btn-c-b-cont button').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url:'/c_b_form.html',
+            type:'GET',
+            dataType:'html',
+            cache:false,
+            success:function (data) {
+
+                var $data = $(data).filter('.c-b-cont');
+                $data.modal({
+                    onOpen:function (el, options) {
+                        execOpenModal(el,options,$data);
+
+                    }
+                }).open();
+            },error:function () {
+
+            }
+        })
+    })
 });
+
+function execOpenModal(el,options,$data){
+    el.find('#c-b-form').submit(function (e) {
+        e.preventDefault();
+        var $sFields = $(this).serialize();
+        $.ajax({
+            url:'/c_b_send.php',
+            type:'POST',
+            data:$sFields,
+            dataTypes:'html',
+            cache:false,
+            success:function () {
+                alert('Ваше сообщение отправлено');
+                $data.modal().close()
+            },
+            error:function () {
+
+            }
+        });
+    });
+    el.find('.theClose').click(function () {
+        $data.modal().close();
+    })
+}
